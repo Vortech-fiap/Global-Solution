@@ -1,0 +1,99 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: sans-serif;
+      overflow: hidden;
+      background: #E4E2FA;
+    }
+
+    .swiper-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+      will-change: transform;
+    }
+
+    .swiper-slide {
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      padding: 20px;
+    }
+
+    .swiper-slide h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .swiper-slide span {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .arrow.left {
+      left: 20px;
+    }
+
+    .arrow.right {
+      right: 20px;
+    }
+
+    .navigation {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      opacity: 1;
+      transform: scale(1.2);
+    }
