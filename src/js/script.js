@@ -30,3 +30,37 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  // Nuvem e cidade sobem levemente
+  document.getElementById('nuvem').style.transform = `translateY(${scrollY * -0.2}px)`;
+  document.getElementById('cidade').style.transform = `translateY(${scrollY * -0.1}px)`;
+
+  // Título desce
+  document.getElementById('title-parallax').style.transform = `translateY(${scrollY * 0.5}px)`;
+
+  // Árvores 1 e 3 descem
+  document.getElementById('arvore1').style.transform = `translateY(${scrollY * 0.2}px)`;
+  document.getElementById('arvore3').style.transform = `translateY(${scrollY * 0.25}px)`;
+
+  // Casa e carro sobem
+  document.getElementById('casa-carro').style.transform = `translateY(${scrollY * -0.15}px)`;
+
+  // Árvores 2 e 4 para a esquerda
+  document.getElementById('arvore2').style.transform = `translateX(${scrollY * -0.2}px)`;
+  document.getElementById('arvore4').style.transform = `translateX(${scrollY * 0.01}px)`;
+
+  // Árvore 5 diagonal esquerda → direita e para baixo
+  document.getElementById('arvore5').style.transform = `translate(${scrollY * 0.2}px, ${scrollY * 0.05}px)`;
+
+  // Lama 1 sobe
+  document.getElementById('lama1').style.transform = `translateY(${scrollY * -0.2}px)`;
+  // Lama 1 sobe
+  document.getElementById('lama2').style.transform = `translateY(${scrollY * -0.3}px)`;
+
+  document.getElementById('section-one').style.transform = `translateY(${scrollY * -0.3}px)`;
+
+
+});
