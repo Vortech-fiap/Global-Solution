@@ -567,3 +567,80 @@ nav {
 }
 
 
+.public-section {
+  background-color: var(--cor-black-roxo) ; 
+  color: var(--cor-creme1);
+  padding: 5rem 2rem;
+}
+
+.public-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.public-content h2 {
+  color: var(--cor-mostarda);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.public-content p {
+  font-size: 1.2rem;
+  color: var(--cor-creme1);
+  margin-bottom: 3rem;
+}
+
+.bar-chart .bar {
+  margin-bottom: 1.2rem;
+}
+
+.bar-chart .label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--cor-roxo-claro);
+}
+
+.bar-fill {
+  height: 28px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  padding-left: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+
+.adultos {
+  width: 40%;
+  height: 70px;
+  background-color: var(--cor-barro-escuro);
+}
+
+.jovens {
+  width: 25%;
+  height: 70px;
+  background-color: var(--cor-mostarda);
+}
+
+.idosos {
+  width: 15%;
+  height: 70px;
+  background-color: var(--cor-areia-macia);
+  color: var(--cor-preto-profundo);
+}
+
+.criancas {
+  width: 10%;
+  height: 70px;
+  background-color: var(--cor-telha-queimada);
+}
+
+.especiais {
+  height: 70px;
+  width: 10%;
+  background-color: var(--cor-roxo-terra);
+}
