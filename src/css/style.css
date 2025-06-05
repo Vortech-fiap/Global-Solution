@@ -1,99 +1,112 @@
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body, html {
-      height: 100%;
-      font-family: sans-serif;
-      overflow: hidden;
-      background: #E4E2FA;
-    }
+body,
+html {
+  height: 100%;
+  font-family: sans-serif;
+  background: #E4E2FA;scroll-behavior: smooth;
+}
 
-    .swiper-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+}
 
-    .swiper-wrapper {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.3s ease;
-      will-change: transform;
-    }
+header.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    .swiper-slide {
-      min-width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-      padding: 20px;
-    }
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
-    .swiper-slide h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
+.logo a,
+.quiz a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+}
 
-    .swiper-slide span {
-      font-size: 1.5rem;
-      text-align: center;
-    }
+/* Navbar base */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 3rem;
-      color: white;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      user-select: none;
-      z-index: 10;
-    }
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
 
-    .arrow.left {
-      left: 20px;
-    }
+/* Hover com sublinhado animado */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 4px;
+  background-color: #824243;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
 
-    .arrow.right {
-      right: 20px;
-    }
+.nav-links li a:hover::after {
+  width: 8px;
+  height: 8px;
+}
 
-    .navigation {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-    }
+/* Estilo quando está na seção ativa */
+.nav-links li a.active {
+  font-weight: 700;
+  color: #824243;
+}
 
-    .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 5px;
-      background-color: #fff;
-      border-radius: 50%;
-      display: inline-block;
-      opacity: 0.5;
-      transition: 0.3s;
-      cursor: pointer;
-    }
+.nav-links li a.active::after {
+  width: 8px;
+  height: 8px;
+}
 
-    .dot.active {
-      opacity: 1;
-      transform: scale(1.2);
-    }
+/* Transições suaves */
+.nav-links li a,
+.nav-links li a::after {
+  transition: all 0.3s ease;
+}
+
+.logo {
+  flex: 1;
+}
+
+.quiz {
+  flex: 1;
+  text-align: right;
+}
+
+#quiz-link{
+  background: #72599A;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 2px 3px 4px rgb(0, 0, 0, 0.25);
+}

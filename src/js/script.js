@@ -1,85 +1,32 @@
-const wrapper = document.querySelector('.swiper-wrapper');
-    const slides = document.querySelectorAll('.swiper-slide');
-    const dots = document.querySelectorAll('.dot');
-    const arrowLeft = document.querySelector('.arrow.left');
-    const arrowRight = document.querySelector('.arrow.right');
+const header = document.getElementById("main-header");
 
-    let currentIndex = 0;
-    let startX = 0;
-    let currentTranslate = 0;
-    let isDragging = false;
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
 
-    function updateSlide(index) {
-      currentTranslate = -index * window.innerWidth;
-      wrapper.style.transform = `translateX(${currentTranslate}px)`;
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links li a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    if (window.scrollY >= sectionTop - sectionHeight / 2) {
+      current = section.getAttribute("id");
     }
+  });
 
-    function nextSlide() {
-      if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        updateSlide(currentIndex);
-      }
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
     }
-
-    function prevSlide() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSlide(currentIndex);
-      }
-    }
-
-    arrowRight.addEventListener('click', nextSlide);
-    arrowLeft.addEventListener('click', prevSlide);
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        currentIndex = i;
-        updateSlide(currentIndex);
-      });
-    });
-
-    // Touch & Mouse Drag
-    wrapper.addEventListener('mousedown', startDrag);
-    wrapper.addEventListener('touchstart', startDrag, { passive: true });
-
-    wrapper.addEventListener('mousemove', onDrag);
-    wrapper.addEventListener('touchmove', onDrag, { passive: true });
-
-    wrapper.addEventListener('mouseup', endDrag);
-    wrapper.addEventListener('mouseleave', endDrag);
-    wrapper.addEventListener('touchend', endDrag);
-
-    function startDrag(e) {
-      isDragging = true;
-      startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-    }
-
-    function onDrag(e) {
-      if (!isDragging) return;
-      const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-      const dx = x - startX;
-
-      wrapper.style.transition = 'none';
-      wrapper.style.transform = `translateX(${currentTranslate + dx}px)`;
-    }
-
-    function endDrag(e) {
-      if (!isDragging) return;
-      isDragging = false;
-
-      const endX = e.type.includes('touch') ? e.changedTouches[0].clientX : e.clientX;
-      const deltaX = endX - startX;
-
-      if (deltaX < -50 && currentIndex < slides.length - 1) {
-        currentIndex++;
-      } else if (deltaX > 50 && currentIndex > 0) {
-        currentIndex--;
-      }
-
-      wrapper.style.transition = 'transform 0.3s ease';
-      updateSlide(currentIndex);
-    }
-
-    // Inicializar
-    updateSlide(currentIndex);
+  });
+});
