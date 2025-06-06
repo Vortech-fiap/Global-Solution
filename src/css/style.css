@@ -794,9 +794,8 @@ nav {
 @media (max-width: 768px) {
 
   #parallax {
-    margin: 45px 0 -40% 0;
+    margin: 45px 0 0 0;
     overflow: hidden;
-    background: transparent;
   }
 
   #title-parallax {
@@ -807,7 +806,7 @@ nav {
   }
 
   #section-one {
-    margin-top: 0;
+    margin-top: -60%;
   }
 
 
