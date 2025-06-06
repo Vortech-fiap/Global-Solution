@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --cor-branco: #ffffff;
+  --cor-creme1: #E9D8B3;
+  --cor-mostarda: #FEBC6E;
+  --cor-barro-escuro: #BB6552;
+  --cor-preto-profundo: #000000;
+  --cor-telha-queimada: #A1532E;
+  --cor-laranja-escuro: #CF8A68;
+
+    --bg-claro: #FFF9C4;
+  --bg-escuro: #2C2C2C;
+  --bg-clean: #E9D8B3;
+
+  --text-claro: #3b3b3b;
+  --text-escuro: #f0f0f0;
+  --text-clean: #222;
+
+  --accent-claro: #FDD835;
+  --accent-escuro: #FFCC80;
+  --accent-clean: #BB6552;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--cor-preto-profundo);
+}
+
+body[data-theme="claro"] {
+  background-color: var(--bg-claro);
+  color: var(--text-claro);
+}
+
+body[data-theme="escuro"] {
+  background-color: var(--bg-escuro);
+  color: var(--text-escuro);
+}
+
+body[data-theme="clean"] {
+  background-color: var(--bg-clean);
+  color: var(--text-clean);
+}
+
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: var(--cor-branco);
+  border-bottom: 2px solid #ccc;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.theme-btn {
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--btn-color, #ccc);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.3s;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: var(--cor-barro-escuro);
+  margin-bottom: 2.5rem;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.question {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-telha-queimada);
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.options {
+  margin-bottom: 2.5rem;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+}
+
+.options input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cor-telha-queimada);
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.options input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--cor-telha-queimada);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.options input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+button {
+  background-color: var(--cor-mostarda);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  color: var(--cor-preto-profundo);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--cor-laranja-escuro);
+}
+
+.result {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  color: var(--cor-barro-escuro);
+  text-align: center;
+}
+
+.input-idade {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.input-idade label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cor-barro-escuro);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.input-idade input {
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  border: none;
+  border-bottom: 3px solid var(--cor-telha-queimada);
+  background-color: transparent;
+  width: 150px;
+  text-align: center;
+  outline: none;
+  color: var(--cor-preto-profundo);
+}
