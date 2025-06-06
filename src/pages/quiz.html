@@ -1,14 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="src/assets/imgs/logo-icon.png"
-      type="image/x-icon"
-    />
-    <title>Flood Guard - Quiz</title>
-  </head>
-  <body></body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flood Guard - Quiz</title>
+  <link rel="shortcut icon" href="../assets/imgs/logo-icon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="src/assets/imgs/logo-icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../css/quiz.css">
+</head>
+
+<body>
+
+  <header id="main-header">
+  <div class="logo">
+    <a href="../../index.html"><img src="../assets/imgs/logo-dark.png" alt="Logo do Projeto" style="height: 40px" /></a>
+  </div>
+
+  <nav>
+    <ul class="nav-links">
+      <li><button class="theme-btn" style="--btn-color: #FDD835" onclick="setTheme('claro')" title="Tema Claro">🌞</button></li>
+      <li><button class="theme-btn" style="--btn-color: #333333" onclick="setTheme('escuro')" title="Tema Escuro">🌙</button></li>
+      <li><button class="theme-btn" style="--btn-color: #E9D8B3" onclick="setTheme('clean')" title="Tema Clean">🎨</button></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+
+    <div class="quiz-container">
+      <h1>Quiz: Você sabe o que fazer em caso de enchente?</h1>
+      
+      
+      <div class="input-idade" id="idade-form">
+        <label for="idade">Informe sua idade:</label><br /><br />
+        <input type="number" id="idade" min="1" />
+        <button onclick="iniciarQuiz()">Começar</button>
+      </div>
+      
+      <div id="quiz" style="display: none">
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <button onclick="nextQuestion()">Próxima</button>
+      </div>
+      
+      
+      <div class="result" id="result"></div>
+    </div>
+  </main>
+
+  <script>
+    const perguntasAdulto = [
+      {
+        q: "O que deve ser feito antes de uma enchente, ao perceber que há risco iminente?",
+        a: "Desligar eletricidade e gás, mover itens importantes para locais altos, preparar evacuação.",
+      },
+      {
+        q: "Quais documentos são importantes de reunir antes de uma enchente?",
+        a: "Documentos pessoais, cartões bancários, receitas médicas, guardados em sacos impermeáveis.",
+      },
+      {
+        q: "O que não se deve fazer durante uma enchente em relação à energia elétrica?",
+        a: "Nunca tocar em equipamentos molhados ou com as mãos molhadas; desligar energia.",
+      },
+      {
+        q: "Durante a enchente, é seguro caminhar por áreas alagadas?",
+        a: "Não. A água pode estar contaminada, esconder buracos e ser perigosa.",
+      },
+      {
+        q: "O que deve ser feito caso seja necessário sair de casa durante a enchente?",
+        a: "Ir para local seguro e alto, evitar áreas alagadas, seguir a Defesa Civil.",
+      },
+      {
+        q: "Quais cuidados devem ser tomados ao retornar para casa após uma enchente?",
+        a: "Verificar estrutura da casa, limpar com água sanitária, descartar itens contaminados.",
+      },
+      {
+        q: "É seguro consumir alimentos ou água que tiveram contato com a enchente?",
+        a: "Não. Podem estar contaminados e devem ser descartados.",
+      },
+      {
+        q: "Que tipo de roupas e equipamentos são recomendados ao limpar a casa após a enchente?",
+        a: "Luvas, botas impermeáveis e máscara. Evitar contato direto com a lama.",
+      },
+      {
+        q: "O que fazer em relação à saúde após uma enchente?",
+        a: "Ir à unidade de saúde, tomar vacinas se necessário, monitorar sintomas.",
+      },
+      {
+        q: "Qual a importância de seguir orientações da Defesa Civil em situações de enchente?",
+        a: "Seguir instruções pode salvar vidas e indicar abrigos e medidas de segurança.",
+      },
+    ];
+
+    const perguntasCrianca = [
+      {
+        q: "O que eu devo fazer se a minha casa começar a encher de água?",
+        a: "Avise um adulto, junte suas coisas importantes e vá para um lugar mais alto.",
+      },
+      {
+        q: "Quais coisas importantes devo guardar bem antes da enchente chegar?",
+        a: "Documentos, remédios, brinquedos especiais e roupa seca em sacos plásticos.",
+      },
+      {
+        q: "Se a rua estiver cheia de água, posso brincar na enchente?",
+        a: "Não! A água é suja e perigosa.",
+      },
+      {
+        q: "O que devo fazer se precisar sair de casa quando está alagando?",
+        a: "Ficar com um adulto e ir para um lugar seco e alto.",
+      },
+      {
+        q: "Posso usar eletrônicos ou ligar a luz com as mãos molhadas?",
+        a: "Não! Pode dar choque. Deixe para os adultos.",
+      },
+      {
+        q: "Depois da enchente posso voltar para casa e brincar?",
+        a: "Só depois que um adulto disser que é seguro.",
+      },
+      {
+        q: "Posso comer os alimentos que ficaram molhados com a água da enchente?",
+        a: "Não! Eles podem fazer mal à saúde.",
+      },
+      {
+        q: "Que roupas devo usar para ajudar a limpar depois da enchente?",
+        a: "Luvas, botas e roupas que protejam. Mas quem limpa são os adultos!",
+      },
+      {
+        q: "Se eu ficar doente depois da enchente, o que devo fazer?",
+        a: "Contar para um adulto e ir ao médico se precisar.",
+      },
+      {
+        q: "Quem pode me ajudar em momentos de enchente?",
+        a: "Pais, vizinhos, professores e a Defesa Civil.",
+      },
+    ];
+
+    let perguntas = [];
+    let current = 0;
+    let score = 0;
+
+    function iniciarQuiz() {
+      const idade = parseInt(document.getElementById("idade").value);
+      if (isNaN(idade) || idade < 1) return alert("Por favor, insira uma idade válida.");
+
+      perguntas = idade < 14 ? perguntasCrianca : perguntasAdulto;
+      current = 0;
+      score = 0;
+
+      document.getElementById("idade-form").style.display = "none";
+      document.getElementById("quiz").style.display = "block";
+
+      carregarPergunta();
+    }
+
+    function carregarPergunta() {
+      const p = perguntas[current];
+      document.getElementById("question").textContent = `Pergunta ${current + 1}: ${p.q}`;
+
+      document.getElementById("options").innerHTML = `
+          <label><input type="radio" name="answer" value="1"> ${p.a}</label>
+          <label><input type="radio" name="answer" value="0"> Outra resposta</label>
+        `;
+    }
+
+    function nextQuestion() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      if (!selected) return alert("Selecione uma resposta!");
+
+      if (selected.value === "1") score++;
+
+      current++;
+      if (current < perguntas.length) {
+        carregarPergunta();
+      } else {
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("result").innerHTML = `
+            Você acertou <strong>${score}</strong> de <strong>${perguntas.length}</strong> perguntas.
+          `;
+      }
+    }
+
+    function setTheme(theme) {
+    const body = document.body;
+    const input = document.querySelector('.input-idade input');
+    const labels = document.querySelectorAll('label');
+    const question = document.querySelector('.question');
+    const options = document.querySelectorAll('.options label');
+    const radios = document.querySelectorAll('.options input[type="radio"]');
+
+    let bgColor, textColor;
+
+    if (theme === 'claro') {
+      bgColor = '#FFF9C4';
+      textColor = '#333333';
+    } else if (theme === 'escuro') {
+      bgColor = '#2C2C2C';
+      textColor = '#f0f0f0';
+    } else if (theme === 'clean') {
+      bgColor = '#E9D8B3';
+      textColor = '#2a1d34';
+    }
+
+    body.style.backgroundColor = bgColor;
+    body.style.color = textColor;
+
+    if (input) {
+      input.style.borderBottom = `3px solid ${textColor}`;
+      input.style.color = textColor;
+    }
+
+    labels.forEach(label => {
+      label.style.color = textColor;
+    });
+
+    if (question) {
+      question.style.color = textColor;
+    }
+
+    options.forEach(option => {
+      option.style.color = textColor;
+    });
+
+    radios.forEach(radio => {
+      radio.style.borderColor = textColor;
+      radio.style.setProperty('--radio-color', textColor);
+    });
+  }
+
+  
+  </script>
+</body>
+
 </html>
