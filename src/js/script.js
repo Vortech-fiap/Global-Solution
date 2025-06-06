@@ -64,3 +64,33 @@ window.addEventListener('scroll', () => {
 
 
 });
+
+
+let currentSlide = 0;
+
+  function showSlide(index) {
+    const track = document.getElementById("sliderTrack");
+    const dots = document.querySelectorAll(".dot");
+    const totalSlides = track.children.length;
+
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+
+    currentSlide = index;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
+
+  function setSlide(index) {
+    showSlide(index);
+  }
+
+  // Inicia no primeiro slide
+  showSlide(0);
+
+  // Autoplay (opcional)
+  setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, 10000);
