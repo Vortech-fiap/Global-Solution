@@ -11,30 +11,30 @@
 
 <body data-theme="claro">
   <header id="main-header">
-  <div class="logo">
-    <a href="#"><img src="src/assets/imgs/logo-dark.png" alt="Logo do Projeto" style="height: 40px" /></a>
-  </div>
+    <div class="logo">
+      <a href="#"><img src="src/assets/imgs/logo-dark.png" alt="Logo do Projeto" style="height: 40px" /></a>
+    </div>
 
-  <!-- Botão do menu hamburguer -->
-  <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    <!-- Botão do menu hamburguer -->
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
 
-  <nav id="nav">
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#section-one">Problemática</a></li>
-      <li><a href="#section-two">FloodGuard</a></li>
-      <li><a href="#section-three">Tecnologias</a></li>
-      <li><a href="#section-four">Objetivos</a></li>
-      <li><a href="#section-five">Público</a></li>
-      <li><a href="#section-six">Benefícios</a></li>
-      <li><a href="#section-seven">Usabilidade</a></li>
-      <li><a href="src/pages/quiz.html" id="quiz-link" class="quiz-mobile">Quiz</a></li>
-    </ul>
-  </nav>
+    <nav id="nav">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#section-one">Problemática</a></li>
+        <li><a href="#section-two">FloodGuard</a></li>
+        <li><a href="#section-three">Tecnologias</a></li>
+        <li><a href="#section-four">Objetivos</a></li>
+        <li><a href="#section-five">Público</a></li>
+        <li><a href="#section-six">Benefícios</a></li>
+        <li><a href="#section-seven">Usabilidade</a></li>
+        <li><a href="src/pages/quiz.html" id="quiz-link" class="quiz-mobile">Quiz</a></li>
+      </ul>
+    </nav>
 
-  <div class="quiz">
-    <a href="src/pages/quiz.html" id="quiz-link">Quiz</a>
-  </div>
-</header>
+    <div class="quiz">
+      <a href="src/pages/quiz.html" id="quiz-link">Quiz</a>
+    </div>
+  </header>
 
   <main>
     <section id="parallax">
@@ -420,6 +420,16 @@
     </div>
   </footer>
 
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
   <script src="src/js/script.js"></script>
 </body>
 

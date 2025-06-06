@@ -7,48 +7,67 @@
   <title>Flood Guard - Quiz</title>
   <link rel="shortcut icon" href="../assets/imgs/logo-icon.png" type="image/x-icon" />
   <link rel="shortcut icon" href="src/assets/imgs/logo-icon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="../css/quiz.css">
+  <link rel="stylesheet" href="../css/quiz.css" />
 </head>
 
 <body>
-
   <header id="main-header">
-  <div class="logo">
-    <a href="../../index.html"><img src="../assets/imgs/logo-dark.png" alt="Logo do Projeto" style="height: 40px" /></a>
-  </div>
+    <div class="logo">
+      <a href="../../index.html"><img src="../assets/imgs/logo-dark.png" alt="Logo do Projeto"
+          style="height: 40px" /></a>
+    </div>
 
-  <nav>
-    <ul class="nav-links">
-      <li><button class="theme-btn" style="--btn-color: #FDD835" onclick="setTheme('claro')" title="Tema Claro">🌞</button></li>
-      <li><button class="theme-btn" style="--btn-color: #333333" onclick="setTheme('escuro')" title="Tema Escuro">🌙</button></li>
-      <li><button class="theme-btn" style="--btn-color: #E9D8B3" onclick="setTheme('clean')" title="Tema Clean">🎨</button></li>
-    </ul>
-  </nav>
-</header>
+    <nav>
+      <ul class="nav-links">
+        <li>
+          <button class="theme-btn" style="--btn-color: #fdd835" onclick="setTheme('claro')" title="Tema Claro">
+            🌞
+          </button>
+        </li>
+        <li>
+          <button class="theme-btn" style="--btn-color: #333333" onclick="setTheme('escuro')" title="Tema Escuro">
+            🌙
+          </button>
+        </li>
+        <li>
+          <button class="theme-btn" style="--btn-color: #e9d8b3" onclick="setTheme('clean')" title="Tema Clean">
+            🎨
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
-
     <div class="quiz-container">
       <h1>Quiz: Você sabe o que fazer em caso de enchente?</h1>
-      
-      
+
       <div class="input-idade" id="idade-form">
         <label for="idade">Informe sua idade:</label><br /><br />
         <input type="number" id="idade" min="1" />
         <button onclick="iniciarQuiz()">Começar</button>
       </div>
-      
+
       <div id="quiz" style="display: none">
         <div class="question" id="question"></div>
         <div class="options" id="options"></div>
         <button onclick="nextQuestion()">Próxima</button>
       </div>
-      
-      
+
       <div class="result" id="result"></div>
     </div>
   </main>
 
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget("https://vlibras.gov.br/app");
+  </script>
   <script src="../js/quiz.js"></script>
 </body>
 
