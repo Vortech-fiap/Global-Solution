@@ -796,6 +796,7 @@ nav {
   #parallax {
     margin: 45px 0 -40% 0;
     overflow: hidden;
+    background: transparent;
   }
 
   #title-parallax {
