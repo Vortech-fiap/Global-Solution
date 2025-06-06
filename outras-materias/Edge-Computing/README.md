@@ -1,6 +1,16 @@
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/12f5ccd6-ce4e-4aff-a49c-10239b080087" alt="FloodGuard" width="250"/>
+</p>
+
 # 🌧️ Projeto de Monitoramento de Enchentes e Queda de Árvores
 
 Este projeto utiliza sensores conectados ao Arduino para monitorar **risco de enchentes** e **queda de árvores** em tempo real. As informações são exibidas em um display LCD I2C, alternando entre telas com **valores dos sensores** e **níveis de alerta**, com base em critérios definidos.
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/23f321d5-2401-493f-aab2-a47e0c0a5161" alt="FloodGuard" width="250"/>
+</p>
 
 ## 🔧 Componentes Utilizados
 
@@ -71,6 +81,9 @@ O LCD alterna automaticamente entre duas telas a cada 3 segundos:
 2. Faça o upload do código `.ino` para a placa.
 3. Observe as leituras no **Serial Monitor** ou no **display LCD**.
 4. Acompanhe os alertas de risco em tempo real.
+5. Ou, se preferir, **acesse o projeto simulado no Wokwi**:  
+   👉 [Simular no Wokwi](https://wokwi.com/projects/432789054081228801)
+
 
 ---
 
