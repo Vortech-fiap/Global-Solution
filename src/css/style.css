@@ -114,6 +114,10 @@ nav {
   flex: 1;
 }
 
+.quiz-mobile{
+  display: none;
+}
+
 .quiz {
   flex: 1;
   text-align: right;
@@ -138,11 +142,6 @@ nav {
   color: #333;
   z-index: 1100;
 }
-
-/* Responsividade */
-@media (max-width: 768px) {}
-
-
 
 #parallax {
   background: var(--cor-roxo-claro);
@@ -796,6 +795,7 @@ nav {
 
   #parallax {
     margin: 45px 0 -40% 0;
+    overflow: hidden;
   }
 
   #title-parallax {
@@ -809,6 +809,10 @@ nav {
     margin-top: 0;
   }
 
+
+  .headline, .tech-heading, .reduct span, .impact{
+    font-size: 28px;
+  }
 
   #section-two.modern-impact {
     margin-top: 220px;
@@ -845,11 +849,6 @@ nav {
 
   .ajuda-imagem img {
     margin: 0 auto;
-  }
-
-  .benefit-slide {
-    grid-template-columns: 1fr;
-    text-align: center;
   }
 
   .text-block,
@@ -901,23 +900,43 @@ nav {
     display: none;
   }
 
+  .quiz-mobile {
+    display: inline-block;
+    background: var(--cor-roxo-escuro);
+    color: var(--cor-branco);
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    margin-top: 1rem;
+  }
+
 
   .slider-track {
     display: grid;
-    grid-template-columns: repeat(4, 100%);
+    grid-template-columns: repeat(3, 100%);
     width: 300%;
     transition: transform 0.6s ease-in-out;
   }
 
   .benefit-slide {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    align-items: center;
-    padding: 2rem;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    padding: 12px;
+    width: 400px;
   }
+
+  .text-block{
+    margin: 18px;
+  }
+
+  .benefit-slide img{
+    display: none;
+  }
+
+  .impacto-tragedia{
+    background-image: none;
+
+  } 
 }
 
 #division-4 {
