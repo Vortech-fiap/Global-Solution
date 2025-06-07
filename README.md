@@ -33,7 +33,7 @@ Implementamos funcionalidades interativas com JavaScript puro, incluindo slidesh
 
 A documentação da solução apresenta:
 
-- **Protótipo de Média Fidelidade:** [Acessar protótipo](https://vortech-fiap.github.io/Global-Solution/#), alinhado com a solução implementada.
+- **Protótipo de Média Fidelidade:** [Acessar protótipo](https://www.figma.com/design/IHuoXH0a48UBsKCJ4yWQAI/Protótipo?t=mvtAnAN5yDuSJoa2-0), alinhado com a solução implementada.
 
 
 ---
