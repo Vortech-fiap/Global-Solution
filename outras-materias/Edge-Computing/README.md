@@ -75,6 +75,15 @@ O LCD alterna automaticamente entre duas telas a cada 3 segundos:
 
 ---
 
+## 🎬 Vídeo de Apresentação
+
+Confira a demonstração do projeto em funcionamento no vídeo abaixo:
+
+👉 [Clique para assistir no YouTube](https://www.youtube.com/watch?v=Rl0y8PjibOQ)
+
+
+---
+
 ## 🧪 Como Usar
 
 1. Monte o circuito com os sensores e o LCD no Arduino.
